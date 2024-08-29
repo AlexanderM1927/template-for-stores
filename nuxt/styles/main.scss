@@ -1,0 +1,71 @@
+
+html {
+    font-size: 16px; /* Sets the base font size to 16px */
+}
+
+@import "@/styles/_breakpoints.scss";
+@import "@/styles/_colors.scss";
+
+@font-face {
+    font-family: 'contra-slab-bold';
+    src: url('/assets/contra-slab-2/ContraSlab-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'contra-slab';
+    src: url('/assets/contra-slab-2/ContraSlab.ttf') format('truetype');
+}
+
+h1, h2, h3 {
+    font-family: 'Roboto';
+}
+
+p {
+    font-family: 'contra-slab';
+}
+
+.main-page {
+    position: relative;
+}
+
+.custom-container {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    word-wrap: break-word;
+}
+
+.text-centered {
+    text-align: center;
+}
+
+.center-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 20rem;
+}
+
+@media only screen and (max-width: $grid-breakpoints-sm) {
+    .center-container {
+        width: 90%;
+    }
+}
+
+
+blockquote {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    font-size: 0.875rem;
+    font-weight: 400;
+    border-left: 0.3rem solid rgb(234, 234, 239);
+    font-style: italic;
+    padding: .5rem 1.2rem;
+}
+
+.ct-btn-success {
+    background: $primary !important;
+    --bs-btn-color: white !important;
+}
+
+.subtitle {
+    font-size: 2rem;
+}

@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subpages",
+  "info": {
+    "singularName": "subpage",
+    "pluralName": "subpages",
+    "displayName": "Subpage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "urlTitle": {
+      "type": "string"
+    },
+    "urlId": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    },
+    "page": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::page.page",
+      "inversedBy": "subpages"
+    },
+    "sort": {
+      "type": "integer"
+    }
+  }
+}

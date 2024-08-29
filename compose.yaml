@@ -1,0 +1,37 @@
+version: "3.5"
+services:
+  frontend:
+    container_name: frontend_lujan
+    build: 
+      dockerfile: Dockerfile
+      context: ./nuxt
+    volumes:
+      - ./nuxt:/usr/src/nuxt-app
+      - ./nuxt/package.json:/usr/src/nuxt-app/package.json
+      - /usr/src/nuxt-app/node_modules
+    ports:
+      - "9095:3000"
+      - "24678:24678"
+    networks:
+      - network_lujan
+
+  backend:
+    container_name: backend_lujan
+    build: 
+      dockerfile: Dockerfile
+      context: ./strapi
+    env_file: ./strapi/.env
+    volumes:
+      - ./strapi/config:/opt/app/config
+      - ./strapi/src:/opt/app/src
+      - ./strapi/package.json:/opt/package.json
+      - ./strapi/yarn.lock:/opt/yarn.lock
+      - ./strapi/.env:/opt/app/.env
+      - ./strapi/public/uploads:/opt/app/public/uploads
+    ports:
+      - "1338:1338"
+    networks:
+      - network_lujan
+
+networks:
+  network_lujan: {}
