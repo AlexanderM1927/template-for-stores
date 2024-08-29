@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   frontend:
-    container_name: frontend_lujan
+    container_name: frontend_store
     build: 
       dockerfile: Dockerfile
       context: ./nuxt
@@ -13,10 +13,10 @@ services:
       - "9095:3000"
       - "24678:24678"
     networks:
-      - network_lujan
+      - network_store
 
   backend:
-    container_name: backend_lujan
+    container_name: backend_store
     build: 
       dockerfile: Dockerfile
       context: ./strapi
@@ -31,7 +31,7 @@ services:
     ports:
       - "1338:1338"
     networks:
-      - network_lujan
+      - network_store
 
 networks:
-  network_lujan: {}
+  network_store: {}
