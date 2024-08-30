@@ -333,6 +333,7 @@ onMounted(() => {
     checkBreakpointsForFilters()
     getCategories()
     getProducts()
+    setSearchName()
 })
 </script>
 <style lang="scss" scoped>
