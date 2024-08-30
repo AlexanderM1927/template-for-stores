@@ -21,11 +21,13 @@ h1, h2, h3 {
 }
 
 p {
-    font-family: 'contra-slab';
+    font-family: 'Roboto';
 }
 
 .main-page {
     position: relative;
+    background: $themeBackground;
+    color: $themeColorText;
 }
 
 .container {
