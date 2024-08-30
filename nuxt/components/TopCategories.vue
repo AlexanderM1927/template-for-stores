@@ -70,19 +70,7 @@ onMounted(() => {
     height: 15rem;
     position: relative;
     cursor: pointer;
-}
-
-.top-categories__category::after {
-    content: '';
-    width: 100%;
-    height: 100%;
-    inset: 0;
-    position: absolute;
-    background: inherit;
-    filter:
-        blur(0.3rem)
-        saturate(400%);
-    z-index: -1;
+    box-shadow: 0 0px 0px 0 rgba(0,0,0,.14), 0 0px 1rem 0 rgba(0,0,0,.12), 0 0.1rem 0.2rem -0.1rem rgba(0,0,0,.3);
 }
 
 @media only screen and (max-width: $grid-breakpoints-sm) {

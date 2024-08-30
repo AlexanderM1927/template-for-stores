@@ -1,5 +1,5 @@
 <template>
-    <div :class="`card ${childClass}`">
+    <div :class="`product-cart-card card ${childClass}`">
         <div class="card-body cart-item">
             <img :title="product.name" :src="product.image" alt="{{ product.name }}">
             <div class="cart-item__info">
@@ -44,7 +44,14 @@ const removeFromCart = ((product: IProductCart) => {
 })
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "@/styles/_colors.scss";
+
+.product-cart-card {
+    background: $themeBackground;
+    color: $themeColorText;
+}
+
 .cart-item {
     display: flex;
     align-items: center;

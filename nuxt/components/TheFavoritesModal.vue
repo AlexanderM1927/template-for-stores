@@ -3,7 +3,7 @@
         <div class="favorites-content-header">
             <h2 class="title">{{ texts.favorites.title }}</h2>
             <div class="close-btn">
-                <Icon name="material-symbols:close" @click="closeFavoritesModal()" color="black" />
+                <Icon name="material-symbols:close" @click="closeFavoritesModal()" />
             </div>
         </div>
         <div class="favorites-content-items">
@@ -70,6 +70,8 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 @import "@/styles/_breakpoints.scss";
+@import "@/styles/_colors.scss";
+
 #overlay-favorites {
   position: fixed; /* Sit on top of the page content */
   display: none; /* Hidden by default */
@@ -90,7 +92,8 @@ onMounted(() => {
     right: 0;
     top: 0;
     height: 100vh;
-    background: white;
+    background: $themeBackground;
+    color: $themeColorText;
     visibility: hidden;
     opacity: 0;
     padding: 1rem;
@@ -111,7 +114,7 @@ onMounted(() => {
 .favorites-content-header {
     display: flex;
     justify-content: space-between;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid $themeColorText;
 }
 
 .favorites-content h1 {
