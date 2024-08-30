@@ -29,8 +29,8 @@ const props = defineProps(
 @import "@/styles/_colors.scss";
 
 .post-card {
-    background: $themeBackground;
-    color: $themeColorText;
+    background: $themeBackgroundCards;
+    color: $themeColorCards;
 }
 
 .post-img {

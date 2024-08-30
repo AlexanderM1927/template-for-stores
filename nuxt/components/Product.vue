@@ -124,8 +124,8 @@ onMounted(() => {
 @import "@/styles/_colors.scss";
 
 .product-card {
-    background: $themeBackground;
-    color: $themeColorText;
+    background: $themeBackgroundCards;
+    color: $themeColorCards;
 }
 
 .add-cart-btn {

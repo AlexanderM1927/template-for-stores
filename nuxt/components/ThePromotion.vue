@@ -34,7 +34,8 @@ const props = defineProps({
     gap: 0.5rem;
 }
 .promotion a {
-    color: red;
+    color: $themePromotionButton;
+    font-weight: 800;
     text-decoration: none;
 }
 </style>

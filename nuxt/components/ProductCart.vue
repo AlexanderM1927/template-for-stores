@@ -48,8 +48,8 @@ const removeFromCart = ((product: IProductCart) => {
 @import "@/styles/_colors.scss";
 
 .product-cart-card {
-    background: $themeBackground;
-    color: $themeColorText;
+    background: $themeBackgroundCards;
+    color: $themeColorCards;
 }
 
 .cart-item {
