@@ -5,7 +5,7 @@
                 <img :title="product.name" :src="product.image" alt="{{ product.name }}">
             </div>
             <div class="product-container__content">
-                <h2>{{ product.name }}</h2>
+                <h2 class="title">{{ product.name }}</h2>
                 <b>{{ texts.description }}:</b>
                 <p>
                     {{ product.description }}

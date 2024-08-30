@@ -1,7 +1,7 @@
 <template>
     <div class="cart-content" ref="cartContent">
         <div class="cart-content-header">
-            <h2>{{ texts.cart.title }}</h2>
+            <h2 class="title">{{ texts.cart.title }}</h2>
             <div class="close-btn">
                 <Icon name="material-symbols:close" @click="closeCart()" color="black" />
             </div>

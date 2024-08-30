@@ -1,6 +1,6 @@
 <template>
     <div class="container custom-container">
-        <h2>{{ promotion.text }}</h2>
+        <h2 class="title">{{ promotion.text }}</h2>
         <div class="row">
             <Product 
                 v-for="(product, index) in products"

@@ -1,5 +1,5 @@
 <template>
-    <div class="promotion" v-if="data.isEnabled">
+    <section class="promotion" v-if="data.isEnabled">
         <div>{{ data.text }}</div>
         <NuxtLink 
             :to="`/promotions/${data.id}`"
@@ -7,7 +7,7 @@
         >
             {{ texts.view }}
         </NuxtLink>
-    </div>
+    </section>
 </template>
 
 <script setup lang="ts">

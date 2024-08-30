@@ -1,7 +1,7 @@
 <template>
     <div class="container custom-container">
         <template v-if="!isLoading">
-            <h2>{{ texts.pages.store }}</h2>
+            <h2 class="title">{{ texts.pages.store }}</h2>
             <div class="store">
                 <div class="store__filters" v-show="showFilters">
                     <div class="close-btn" v-show="type === 'xs'">
@@ -153,15 +153,15 @@ const paginatorCategories: Ref<IPaginator> = ref({
 
 const route = useRoute()
 
-watch(priceFilterMin, (val) => {
+watch(priceFilterMin, (_val: Number) => {
     filterProducts()
 })
 
-watch(priceFilterMax, (val) => {
+watch(priceFilterMax, (_val: Number) => {
     filterProducts()
 })
 
-watch(productNameFilter, (val) => {
+watch(productNameFilter, (_val: String) => {
     debounce(() => {
         isLoading.value = true
         getProductsByFilter()
@@ -169,12 +169,12 @@ watch(productNameFilter, (val) => {
     }, 1500)
 })
 
-watch(orderBy, (val) => {
+watch(orderBy, (_val: String) => {
     getProductsByFilter()
 })
 
 watch(() => route.query, () => {
-    setSearchName()
+    setSearchByQueryParams()
 })
 
 const filterProducts = () => {
@@ -195,9 +195,10 @@ const filterProducts = () => {
         return validate
     })
 
+
     if (category && category.id) {
         productsFilteredToShow = productsFilteredToShow.filter((product: IProduct) => {
-            return product.category?.data?.id === category.id
+            return product.category?.data?.id === parseInt(category.id)
         })
     }
 
@@ -312,11 +313,20 @@ const setDefaultProducts = () => {
     getProducts()
 }
 
-const setSearchName = (() => {
+const setSearchByQueryParams = (() => {
     const { query } = route
     const { q: productName } = query
+    const { c: categoryId } = query
     if (productName) {
         productNameFilter.value = productName
+        isLoading.value = true
+        getProductsByFilter()
+        isLoading.value = false
+    }
+    if (categoryId) {
+        categoryFiltered.value = {
+            id: categoryId
+        }
         isLoading.value = true
         getProductsByFilter()
         isLoading.value = false
@@ -333,7 +343,7 @@ onMounted(() => {
     checkBreakpointsForFilters()
     getCategories()
     getProducts()
-    setSearchName()
+    setSearchByQueryParams()
 })
 </script>
 <style lang="scss" scoped>

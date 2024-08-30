@@ -4,7 +4,9 @@ export default defineNuxtConfig({
     public: {
       strapiAssets: process.env.STRAPI_ASSETS,
       apiBase: process.env.API_BASE,
-      storeName: process.env.STORE_NAME
+      storeName: process.env.STORE_NAME,
+      header: process.env.HEADER,
+      description: process.env.DESCRIPTION
     }
   },
   app: {

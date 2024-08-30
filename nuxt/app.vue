@@ -44,9 +44,9 @@ onMounted(() => {
     getPromotions()
 })
 useHead({
-  title: `${appConfig.public.storeName} - Connect with your soul`,
+  title: `${appConfig.public.header}`,
   meta: [
-    { name: 'description', content: 'Website to read tips and see all products that we have for you that you alwas desire | Relax zone | Learn | Your main alliance' }
+    { name: 'description', content: appConfig.public.description }
   ],
 })
 

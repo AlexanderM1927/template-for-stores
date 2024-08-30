@@ -1,7 +1,7 @@
 <template>
     <div class="favorites-content" ref="favoritesContent">
         <div class="favorites-content-header">
-            <h2>{{ texts.favorites.title }}</h2>
+            <h2 class="title">{{ texts.favorites.title }}</h2>
             <div class="close-btn">
                 <Icon name="material-symbols:close" @click="closeFavoritesModal()" color="black" />
             </div>
