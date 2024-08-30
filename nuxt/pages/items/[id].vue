@@ -22,7 +22,7 @@
                 <div class="product-container__btns">
                 <a 
                     title="Agregar al carrito" 
-                    class="add-cart-btn btn btn-outline-primary" 
+                    class="add-cart-btn btn btn-primary" 
                     @click="addToCart(product)"
                 >
                     <Icon name="material-symbols:add-shopping-cart" />
@@ -31,7 +31,7 @@
                 <a 
                     v-if="!isProductOnFavorites" 
                     title="Agregar a favoritos" 
-                    class="add-cart-btn btn btn-outline-danger" 
+                    class="add-cart-btn btn btn-danger" 
                     @click="addToFavorites(product)"
                 >
                     <Icon name="material-symbols:favorite" />
@@ -40,7 +40,7 @@
                 <a 
                     v-else
                     title="Elminar de favoritos" 
-                    class="add-cart-btn btn btn-outline-danger" 
+                    class="add-cart-btn btn btn-danger" 
                     @click="removeFromFavorites(product)"
                 >
                     <Icon name="carbon:favorite-half" />

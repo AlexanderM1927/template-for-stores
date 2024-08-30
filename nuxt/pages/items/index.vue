@@ -318,12 +318,14 @@ const setSearchByQueryParams = (() => {
     const { q: productName } = query
     const { c: categoryId } = query
     if (productName) {
+        categoryFiltered.value = null
         productNameFilter.value = productName
         isLoading.value = true
         getProductsByFilter()
         isLoading.value = false
     }
     if (categoryId) {
+        productNameFilter.value = ''
         categoryFiltered.value = {
             id: categoryId
         }
