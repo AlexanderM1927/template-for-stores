@@ -323,8 +323,7 @@ const setSearchByQueryParams = (() => {
         isLoading.value = true
         getProductsByFilter()
         isLoading.value = false
-    }
-    if (categoryId) {
+    } else if (categoryId) {
         productNameFilter.value = ''
         categoryFiltered.value = {
             id: categoryId
@@ -332,6 +331,8 @@ const setSearchByQueryParams = (() => {
         isLoading.value = true
         getProductsByFilter()
         isLoading.value = false
+    } else {
+        setDefaultProducts()
     }
 })
 
