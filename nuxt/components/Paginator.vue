@@ -97,6 +97,7 @@ onMounted(() => {
     display: flex;
     width: 100%;
     justify-content: center;
+    z-index: 1;
 }
 .page-link {
     cursor: pointer;
