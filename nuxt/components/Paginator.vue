@@ -71,7 +71,6 @@ const getPagesToShow = () => {
             pagesToShow.value.push(i)
         }
     }
-    console.log('pagesToShow.value', pagesToShow.value)
     render.value++
 }
 const changePage = (newPage: string) => {
