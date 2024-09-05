@@ -1,5 +1,5 @@
 <template>
-    <div class="container custom-container">
+    <div class="first-container">
         <h2 class="title">{{ promotion.text }}</h2>
         <div class="row">
             <Product 

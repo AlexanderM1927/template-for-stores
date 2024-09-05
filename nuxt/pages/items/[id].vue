@@ -1,5 +1,5 @@
 <template>
-    <div class="container custom-container product-page">
+    <div class="first-container product-page">
         <div class="product-container">
             <div class="product-container__image">
                 <img :title="product.name" :src="product.image" alt="{{ product.name }}">

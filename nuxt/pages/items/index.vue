@@ -1,5 +1,5 @@
 <template>
-    <div class="container custom-container">
+    <div class="first-container">
         <template v-if="!isLoading">
             <h2 class="title">{{ texts.pages.store }}</h2>
             <div class="store">

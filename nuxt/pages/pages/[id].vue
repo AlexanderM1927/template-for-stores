@@ -1,5 +1,5 @@
 <template>
-    <div class="container custom-container">
+    <div class="first-container">
         <h2 class="title">{{ page.title }}</h2>
         <Markdown :source="page.content" />
         <template v-if="!isLoading && page.category && page.category.data">
