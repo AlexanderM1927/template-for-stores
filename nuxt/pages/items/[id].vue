@@ -2,7 +2,21 @@
     <div class="first-container product-page">
         <div class="product-container">
             <div class="product-container__image">
-                <img :title="product.name" :src="product.image" alt="{{ product.name }}">
+                <img
+                    :title="product.name"
+                    :src="product.images[0]"
+                    alt="{{ product.name }}"
+                    id="main-image"
+                >
+                <div class="slider-product">
+                    <div
+                        v-for="(image, indexImage) in product.images"
+                        class="slider-product__item"
+                        @click="changeMainImage(image)"
+                    >
+                        <img :src="image">
+                    </div>
+                </div>
             </div>
             <div class="product-container__content">
                 <h2 class="title">{{ product.name }}</h2>
@@ -19,15 +33,37 @@
                     </p>
                     <p>${{ formatMiles(product.price) }}</p>
                 </div>
+                <div class="product-container__variants">
+                    <div v-show="product.colors">
+                        <b>Color:</b>
+                        <div class="variants__colors">
+                            <input
+                                v-for="(color, index) in product.colors" 
+                                :key="color.id"
+                                :checked="index === 0"
+                                class="variants__colors-input"
+                                :style="`background: #${color.hexadecimal};`"
+                                type="radio"
+                                :id='color.id'
+                                name="colors"
+                                :value="color.name"
+                            >
+                        </div>
+                        <b>Talla:</b>
+                        <div class="variants__size">
+                            <select name="variant-size" class="form-select">
+                                <option 
+                                    v-for="(size, index) in product.sizes" 
+                                    :key="size.id"
+                                    :value="size.name"
+                                >
+                                    {{ size.name }}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
                 <div class="product-container__btns">
-                <a 
-                    title="Agregar al carrito" 
-                    class="add-cart-btn btn btn-primary" 
-                    @click="addToCart(product)"
-                >
-                    <Icon name="material-symbols:add-shopping-cart" />
-                    {{ texts.add_to_cart }}
-                </a>
                 <a 
                     v-if="!isProductOnFavorites" 
                     title="Agregar a favoritos" 
@@ -45,6 +81,14 @@
                 >
                     <Icon name="carbon:favorite-half" />
                     {{ texts.remove_from_favorites }}
+                </a>
+                <a 
+                    title="Agregar al carrito" 
+                    class="add-cart-btn btn btn-primary" 
+                    @click="addToCart(product)"
+                >
+                    <Icon name="material-symbols:add-shopping-cart" />
+                    {{ texts.add_to_cart }}
                 </a>
             </div>
             </div>
@@ -75,7 +119,7 @@ const isLoading: Ref<Boolean> = ref(true);
 const product: Ref<IProduct> = ref({
     id: 1,
     name: '',
-    image: '',
+    images: [''],
     price: 0
 })
 
@@ -88,7 +132,10 @@ const getProduct = async (newPage: number = 1) => {
     product.value = data.map(({ id, attributes }: { id: number, attributes: any }) => {
         const product: IProduct = {
             ...attributes,
-            image: useImageFromStrapi(attributes.image.data[0].attributes.url),
+            // images: useImageFromStrapi(attributes.image.data[0].attributes.url),
+            images: attributes.image.data.map((el: IImageStrapi) => {
+                return useImageFromStrapi(el.attributes?.url)
+            }),
             id: id
         }
         return product
@@ -135,6 +182,10 @@ const removeFromFavorites = ((product: IProduct) => {
     favoritesStore.removeProducts(product)
 })
 
+const changeMainImage = (image) => {
+    (document.getElementById('main-image') as HTMLImageElement).src = image
+}
+
 onMounted(() => {
     const favoritesLS = localStorage.getItem('favorites')
     const favorites: [IProduct] = favoritesLS ? JSON.parse(favoritesLS) : []
@@ -156,12 +207,15 @@ onMounted(() => {
 
 .product-container__image {
     display: flex;
+    flex-direction: column;
     width: 100%;
+    align-items: center;
     justify-content: center;
 }
 
 .product-container__image img {
     max-width: 100%;
+    height: 20rem;
 }
 
 .product-container__content {
@@ -181,5 +235,52 @@ onMounted(() => {
 .product-container__price-offer {
     color: red;
     text-decoration: line-through;
+}
+
+.variants__colors {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.variants__colors-input {
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 1rem;
+}
+
+.variants__colors-input:checked {
+    border: 0.2rem solid #FFF;
+}
+
+.variants__size {
+    margin-bottom: 0.5rem;
+}
+
+.slider-product {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.slider-product__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    background: white;
+    padding: 0.5rem;
+    cursor: pointer;
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.14), 0 0px 1rem 0 rgba(0, 0, 0, 0.12), 0 0.1rem 0.2rem -0.1rem rgba(0, 0, 0, 0.3);
+}
+
+.slider-product__item img {
+    width: 5rem;
+    height: 5rem;
 }
 </style>
