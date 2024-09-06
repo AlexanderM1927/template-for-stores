@@ -34,7 +34,7 @@
                     <p>${{ formatMiles(product.price) }}</p>
                 </div>
                 <div class="product-container__variants">
-                    <div v-show="product.colors">
+                    <div v-show="product.colors && product.colors.length > 0">
                         <b>Color:</b>
                         <div class="variants__colors">
                             <input
@@ -49,6 +49,8 @@
                                 :value="color.name"
                             >
                         </div>
+                    </div>
+                    <div v-show="product.sizes && product.sizes.length > 0">
                         <b>Talla:</b>
                         <div class="variants__size">
                             <select name="variant-size" class="form-select">
