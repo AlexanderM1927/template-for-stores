@@ -73,7 +73,9 @@ const getProducts = async (newPage = 1) => {
         const products = data.map(({ id, attributes }: { id: number, attributes: any }) => {
             const product: IProduct = {
                 ...attributes,
-                image: useImageFromStrapi(attributes.image.data[0].attributes.url),
+                images: attributes.image.data.map((el: IImageStrapi) => {
+                    return useImageFromStrapi(el.attributes?.url)
+                }),
                 id: id
             }
             return product

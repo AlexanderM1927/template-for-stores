@@ -2,7 +2,7 @@
     <div v-if="product" :class="`product-card card ${childClass}`">
         <img
             :title="product.name"
-            :src="product.image" 
+            :src="product.images[0]" 
             class="card-img-top product-card__img" 
             alt="..."
             @click="navigateTo('/items/' + product.id)"

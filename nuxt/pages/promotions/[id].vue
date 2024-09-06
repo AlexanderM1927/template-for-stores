@@ -45,8 +45,10 @@ const getPromotions = async (newPage: number = 1) => {
     products.value = dataProducts.map(({ id, attributes }: { id: number, attributes: any }) => {
         const product: IProduct = {
             ...attributes,
-            image: useImageFromStrapi(attributes.image.data[0].attributes.url),
-            id
+            images: attributes.image.data.map((el: IImageStrapi) => {
+                return useImageFromStrapi(el.attributes?.url)
+            }),
+            id: id
         }
         return product
     })
