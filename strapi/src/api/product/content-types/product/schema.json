@@ -41,13 +41,13 @@
     "description": {
       "type": "richtext"
     },
-    "Color": {
+    "colors": {
       "displayName": "Variant",
       "type": "component",
       "repeatable": true,
       "component": "variants.variant"
     },
-    "Sizes": {
+    "sizes": {
       "displayName": "Size",
       "type": "component",
       "repeatable": true,

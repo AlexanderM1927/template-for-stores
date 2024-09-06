@@ -1,11 +1,12 @@
 {
   "collectionName": "components_variants_variants",
   "info": {
-    "displayName": "Variant"
+    "displayName": "color",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "color": {
+    "name": {
       "type": "string"
     },
     "value": {
