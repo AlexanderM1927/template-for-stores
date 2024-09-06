@@ -88,7 +88,7 @@ const getProduct = async (newPage: number = 1) => {
     product.value = data.map(({ id, attributes }: { id: number, attributes: any }) => {
         const product: IProduct = {
             ...attributes,
-            image: useImageFromStrapi(attributes.image.data.attributes.url),
+            image: useImageFromStrapi(attributes.image.data[0].attributes.url),
             id: id
         }
         return product
