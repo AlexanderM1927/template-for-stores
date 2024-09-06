@@ -23,7 +23,7 @@
             </div>
             <div class="product-card__btns">
                 <a 
-                    title="Agregar al carrito" 
+                    title="Ver más detalles" 
                     class="add-cart-btn btn btn-primary" 
                     @click="navigateTo('/items/' + product.id)"
                 >
