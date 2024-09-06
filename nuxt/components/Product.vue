@@ -25,9 +25,9 @@
                 <a 
                     title="Agregar al carrito" 
                     class="add-cart-btn btn btn-primary" 
-                    @click="addToCart(product)"
+                    @click="navigateTo('/items/' + product.id)"
                 >
-                    <Icon name="material-symbols:add-shopping-cart" />
+                    <Icon name="material-symbols:visibility-outline" />
                 </a>
                 <a 
                     v-if="!isProductOnFavorites" 
@@ -73,15 +73,6 @@ const props = defineProps({
         required: true,
         type: Object as PropType<IProduct>
     }
-})
-
-const addToCart = ((product: IProduct) => {
-    ToastHelper.openToast('product-' + product.id)
-    const productCart: IProductCart = {
-        ...product,
-        quantity: 1
-    }
-    cart.addProducts(productCart)
 })
 
 const isProductOnFavorites = computed(() => {

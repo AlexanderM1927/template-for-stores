@@ -1,7 +1,7 @@
 <template>
     <div :class="`product-cart-card card ${childClass}`">
         <div class="card-body cart-item">
-            <img :title="product.name" :src="product.image" alt="{{ product.name }}">
+            <img :title="product.name" :src="product.images[0]" alt="{{ product.name }}">
             <div class="cart-item__info">
                 <h5 class="cad-item__title">{{ product.name }}</h5>
                 <p>{{ texts.cart.quantity }}: {{ product.quantity }}</p>

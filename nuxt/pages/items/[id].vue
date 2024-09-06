@@ -53,9 +53,12 @@
                     <div v-show="product.sizes && product.sizes.length > 0">
                         <b>Talla:</b>
                         <div class="variants__size">
-                            <select name="variant-size" class="form-select">
+                            <select
+                                name="variant-size"
+                                class="form-select"
+                            >
                                 <option 
-                                    v-for="(size, index) in product.sizes" 
+                                    v-for="size in product.sizes" 
                                     :key="size.id"
                                     :value="size.name"
                                 >
@@ -116,7 +119,7 @@ const formatMiles = NumberHelper.miles
 
 const route = useRoute()
 
-const isLoading: Ref<Boolean> = ref(true);
+const isLoading: Ref<Boolean> = ref(true)
 
 const product: Ref<IProduct> = ref({
     id: 1,
@@ -183,7 +186,7 @@ const removeFromFavorites = ((product: IProduct) => {
     favoritesStore.removeProducts(product)
 })
 
-const changeMainImage = (image) => {
+const changeMainImage = (image: string) => {
     (document.getElementById('main-image') as HTMLImageElement).src = image
 }
 
@@ -265,6 +268,7 @@ onMounted(() => {
     margin-top: 1.5rem;
     display: flex;
     gap: 1rem;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
