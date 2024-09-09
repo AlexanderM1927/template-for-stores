@@ -10,7 +10,7 @@
                 >
                 <div class="slider-product" v-show="product.images.length > 1">
                     <div
-                        v-for="(image, indexImage) in product.images"
+                        v-for="image in product.images"
                         class="slider-product__item"
                         @click="changeMainImage(image)"
                     >
