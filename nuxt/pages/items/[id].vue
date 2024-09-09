@@ -54,6 +54,7 @@
                         <b>Talla:</b>
                         <div class="variants__size">
                             <select
+                                id="variant-size"
                                 name="variant-size"
                                 class="form-select"
                             >
@@ -150,9 +151,16 @@ const getProduct = async (newPage: number = 1) => {
 
 const addToCart = ((product: IProduct) => {
     ToastHelper.openToast('product-' + product.id)
+    const colorSelected = (document.querySelector('input[name="colors"]:checked') as HTMLInputElement)?.value
+    const sizeSelected = (document.getElementById('variant-size') as HTMLInputElement)?.value
+
     const productCart: IProductCart = {
         ...product,
-        quantity: 1
+        quantity: 1,
+        selectedVariants: {
+            color: colorSelected ?? '',
+            size: sizeSelected ?? '',
+        }
     }
     cart.addProducts(productCart)
 })

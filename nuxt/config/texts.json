@@ -34,7 +34,9 @@
         "remove": "Quitar del carrito",
         "proceed": "Proceder al pago",
         "price": "Precio",
-        "total": "Total"
+        "total": "Total",
+        "variant_color": "Color",
+        "variant_size": "Talla"
     },
     "favorites": {
         "title": "Favoritos"

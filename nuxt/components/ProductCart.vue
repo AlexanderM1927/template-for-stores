@@ -5,9 +5,13 @@
             <div class="cart-item__info">
                 <h5 class="cad-item__title">{{ product.name }}</h5>
                 <p>{{ texts.cart.quantity }}: {{ product.quantity }}</p>
-                <div class="cad-item__price">
+                <div class="d-flex space-between">
                     <p>{{ texts.cart.price }}: {{ formatMiles(product.price) }}</p>
                     <p>{{ texts.cart.total }}: {{ formatMiles((product.price * product.quantity)) }}</p>
+                </div>
+                <div class="d-flex space-between">
+                    <p v-show="product.selectedVariants.color">{{ texts.cart.variant_color }}: {{ product.selectedVariants.color }}</p>
+                    <p v-show="product.selectedVariants.size">{{ texts.cart.variant_size }}: {{ product.selectedVariants.size }}</p>
                 </div>
             </div>
         </div>
@@ -66,10 +70,5 @@ const removeFromCart = ((product: IProductCart) => {
 
 .cart-item img {
     max-height: 3rem;
-}
-
-.cad-item__price {
-    display: flex;
-    justify-content: space-between;
 }
 </style>
