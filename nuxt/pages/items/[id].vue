@@ -8,7 +8,7 @@
                     alt="{{ product.name }}"
                     id="main-image"
                 >
-                <div class="slider-product">
+                <div class="slider-product" v-show="product.images.length > 1">
                     <div
                         v-for="(image, indexImage) in product.images"
                         class="slider-product__item"
