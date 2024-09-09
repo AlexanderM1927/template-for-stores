@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'NuxtAppName',
+      name: 'TemplateNuxt',
       port: '9095',
       exec_mode: 'cluster',
       instances: 'max',

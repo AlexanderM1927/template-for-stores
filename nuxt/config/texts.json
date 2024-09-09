@@ -11,6 +11,8 @@
     "description": "Descripción",
     "no_products_filter": "No hay productos con estos filtros",
     "remove": "Quitar",
+    "variant_color": "Color",
+    "variant_size": "Talla",
     "pages": {
         "index": "Inicio",
         "posts": "Publicaciones",
@@ -34,9 +36,7 @@
         "remove": "Quitar del carrito",
         "proceed": "Proceder al pago",
         "price": "Precio",
-        "total": "Total",
-        "variant_color": "Color",
-        "variant_size": "Talla"
+        "total": "Total"
     },
     "favorites": {
         "title": "Favoritos"
