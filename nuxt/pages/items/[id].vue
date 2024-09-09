@@ -7,7 +7,7 @@
                     :src="product.images[0]"
                     alt="{{ product.name }}"
                     id="main-image"
-                >
+                />
                 <div class="slider-product" v-show="product.images.length > 1">
                     <div
                         v-for="image in product.images"
