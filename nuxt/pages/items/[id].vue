@@ -239,6 +239,10 @@ onMounted(() => {
     justify-content: space-between;
 }
 
+.product-container__btns > a {
+    width: 50%;
+}
+
 .product-container__price {
     display: flex;
     justify-content: space-between;
