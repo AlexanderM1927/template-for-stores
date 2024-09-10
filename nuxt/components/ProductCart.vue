@@ -10,8 +10,8 @@
                     <p>{{ texts.cart.total }}: {{ formatMiles((product.price * product.quantity)) }}</p>
                 </div>
                 <div class="d-flex space-between">
-                    <p v-show="product.selectedVariants.color">{{ texts.cart.variant_color }}: {{ product.selectedVariants.color }}</p>
-                    <p v-show="product.selectedVariants.size">{{ texts.cart.variant_size }}: {{ product.selectedVariants.size }}</p>
+                    <p v-show="product.selectedVariants.color">{{ texts.variant_color }}: {{ product.selectedVariants.color }}</p>
+                    <p v-show="product.selectedVariants.size">{{ texts.variant_size }}: {{ product.selectedVariants.size }}</p>
                 </div>
             </div>
         </div>
