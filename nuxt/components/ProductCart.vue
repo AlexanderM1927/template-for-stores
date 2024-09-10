@@ -90,7 +90,6 @@ const removeFromCart = ((product: IProductCart) => {
 
 .cart-item__delete {
     display: flex;
-    justify-content: start;
     align-items: flex-start;
     flex-direction: row;
 }

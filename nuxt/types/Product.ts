@@ -4,6 +4,7 @@ interface IProduct {
     images: string[],
     price: number
     category?: ICategory,
+    description?: string,
     colors?: [],
     sizes?: []
 }

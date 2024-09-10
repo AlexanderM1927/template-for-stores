@@ -14,6 +14,7 @@
         </section>
         <TopCategories></TopCategories>
         <LatestPosts></LatestPosts>
+        <LatestProducts></LatestProducts>
     </template>
     <template v-else>
         <LoadingComponent
